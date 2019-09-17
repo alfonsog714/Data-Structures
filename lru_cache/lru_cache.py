@@ -89,4 +89,13 @@ class LRUCache:
     'item2': ['b', <doubly_linked_list.ListNode object at 0x00323C10>],
     'item2': ['b', <doubly_linked_list.ListNode object at 0x00320Z14>],
 }
+
+const something = {
+    item: ['a', <doubly_linked_list.ListNode object at 0x00320D10>],
+    item2: ['b', <doubly_linked_list.ListNode object at 0x00320C10>],
+    item2: ['b', <doubly_linked_list.ListNode object at 0x00320C10>],
+    item2: ['b', <doubly_linked_list.ListNode object at 0x00320C20>],
+    item2: ['b', <doubly_linked_list.ListNode object at 0x00323C10>],
+    item2: ['b', <doubly_linked_list.ListNode object at 0x00320Z14>],
+}
 """
