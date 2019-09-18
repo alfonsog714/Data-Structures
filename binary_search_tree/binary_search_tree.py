@@ -44,7 +44,25 @@ class BinarySearchTree:
     """
     * `contains` searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
     """
-    pass
+    # Similar to the loop above, we can traverse that way.
+    current_tree = self
+    checking = True
+
+    while checking is True:
+      if current_tree.value == target:
+        checking = False
+        return True
+      elif target >= current_tree.value and current_tree.right:
+        current_tree = current_tree.right
+      elif target < current_tree.value and current_tree.left:
+        current_tree = current_tree.left
+      elif target >= current_tree.value and not current_tree.right:
+        checking = False
+        return False
+      elif target < current_tree.value and not current_tree.left:
+        checking = False
+        return False
+
 
   def get_max(self):
     """
