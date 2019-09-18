@@ -6,6 +6,7 @@ from dll_stack import Stack
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
+    # Left and right are essentially pointers
     self.left = None
     self.right = None
 
@@ -23,15 +24,22 @@ class BinarySearchTree:
     current_tree = self
     # We need to loop through the tree
     checking = True
-    while checking is True:
-      # If the passed in node's value is greater than the current one, set it to the right
-      if value >= current_tree.value:
-        current_tree.right = value
-      # If the passed in node's value is less than the current node, set it to the left
-      elif value < current_tree.value:
-        current_tree.left = value
-      # If the passed in value
-
+    while checking is True: 
+      # If the passed in node's value is greater than the current one, and there is a value to the right, move down to the right
+      if value >= current_tree.value and current_tree.right:
+        current_tree = current_tree.right
+      # If the passed in node's value is less than the current node, and there is a left node, set current node to the left node
+      elif value < current_tree.value and current_tree.left:
+        current_tree = current_tree.left
+      # If the passed in value is greater than or equal to the current value and there is no right node, make a new node at the current.right and stop loop
+      elif value >= current_tree.value and not current_tree.right:
+        current_tree.right = BinarySearchTree(value)
+        checking = False
+      # If the passed in value is less than the current val and there is no left node, make a new node at curret.left and stop loop
+      elif value < current_tree.value and not current_tree.left:
+        current_tree.left = BinarySearchTree(value)
+        checking = False
+        
   def contains(self, target):
     """
     * `contains` searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
