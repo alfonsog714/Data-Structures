@@ -47,7 +47,8 @@ class BinarySearchTree:
     # Similar to the loop above, we can traverse that way.
     current_tree = self
     checking = True
-
+    
+    
     while checking is True:
       if current_tree.value == target:
         checking = False
